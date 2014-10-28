@@ -1,0 +1,25 @@
+
+e70025a7266b35ba4b48407fc688fd2c  prácticas\programación practica 2\menu funciones miriam\menu\Debug\menu.exe.embed.manifest.res
+e70025a7266b35ba4b48407fc688fd2c  prácticas\programación practica 2\programa\practica2\Debug\practica2.exe.embed.manifest.res
+
+d4d001619a9c5921728ca1acaf7575ea  prácticas\programación practica 2\Programación Practica 2\Proyectos ANSI C en Visual C.pdf
+d4d001619a9c5921728ca1acaf7575ea  prácticas\Proyectos ANSI C en Visual C.pdf
+
+9f97434014566363118e883726f603ff  prácticas\programación practica 2\programa\practica2\Debug\practica2.exe.embed.manifest
+9f97434014566363118e883726f603ff  prácticas\programación practica 2\menu funciones miriam\menu\Debug\menu.exe.embed.manifest
+
+8da3fa81efa85adad78efc1d31537d2a  prácticas\programación practica 2\menu funciones miriam\menu\Debug\menu.exe.intermediate.manifest
+8da3fa81efa85adad78efc1d31537d2a  prácticas\programación practica 2\programa\practica2\Debug\practica2.exe.intermediate.manifest
+
+6c1f955c08fe137da1d46e6dea1e5bbe  prácticas\programación practica 2\programa\practica2\practica2.vcproj.UMHALU.usuario.user
+6c1f955c08fe137da1d46e6dea1e5bbe  prácticas\programación practica 2\Programación Practica 2\Programación\práctica 2\Practica2\Practica2.vcproj.UMHALU.usuario.user
+
+4c1f02d00b5f765e76d289bd63331c9e  prácticas\programación practica 2\Programación Practica 2\Programación\MENÚ práctica programacion 1.docx
+4c1f02d00b5f765e76d289bd63331c9e  Exámenes\2º Control programación\MENÚ práctica.docx
+
+3e403ad5a4e8dba6322f428f48a35acb  prácticas\programación practica 2\Programación Practica 2\Practica_Menu_v02.pdf
+3e403ad5a4e8dba6322f428f48a35acb  prácticas\Programacion - Practica_Menu_v02.pdf
+
+
+
+

@@ -1,0 +1,52 @@
+Examen Parcial II 8-nov-2012
+
+1) Explica cómo es el formato de una cadena de caracteres en C
+2) ¿Cuales son las diferencias entre scanf() y gets() en relación a la entrada de cadenas de caracteres?
+3) ¿Qué se pasa realmente como parámetro de la función cuando se pone el nombre de una cadena de caracteres en la llamada?
+4) ¿Dónde se debe reservar el espacio de memoria para una cadena cuando va a ser pasada a una función?
+5) Si se pierde el carácter nulo del final de una cadena de caracteres, ¿qué hace la función strlen()?
+6) En relación a las estructuras y la forma de acceder a los componentes, explica cuando se usa el operador . y cuando el operador -> Pon un ejemplo de cada uso.
+7) ¿Cuál es la diferencia entre "\0" y '\0' ?
+8) ¿Cuáles la diferencia entre un vector global y uno local?
+9) ¿Qué ocurre cuando se declara un vector estático?
+10) ¿Qué significa el término "Almacenamiento por filas" cuando se almacena una matriz cuadrada en memoria?
+
+PROGRAMAS -----------------------------------------
+11) (1 PUNTO) En la biblioteca ctype.h existen las funciones
+	int toupper(int ch);
+	int ispunct(int ch);
+	int isdigit(int ch);
+Haciendo uso de estas funciones, escribir un programa que dada la entrada:
+	Hola agente 007, soy Max!  ¿Dónde está el jefe?
+produzca la siguiente salida:
+	HOLA AGENTE SOY MAX  DONDE ESTA EL JEFE
+
+12) (1.5 PUNTOS) Escriba un programa que determine si una cadena de caracteres entrada por el usuario es un palíndromo (se lee igual en ambos sentidos).
+
+13) 1. Defina (0,5 PUNTOS):
+	a. una estructura para almacenar un contacto
+	b. un array que almacene como máximo 1000 contactos los contactos de una agenda.
+
+Un contacto está formado por:
+· Nombre (hasta 30 caracteres)
+· Apellidos (hasta 50 caracteres)
+· Telefono (hasta 16 caracteres)
+· Direccion (hasta 150 caracteres)
+· Codigo_postal (5 caracteres)
+· Descuento (descuento máximo del cliente, float)
+· Pedidos (array con los números de pedidos realizados. Máximo 200)
+· Numero_pedidos (numero de pedidos realizados, es decir con dato)
+
+2. Realizar una función (2 PUNTOS)
+
+	void PedirContacto( ?????? );
+
+que le pida al usuario los datos del contacto y los almacene en la estructura que se pasa por parámetro. No rellena datos del array de Pedidos ni el Numero_pedidos.
+
+3. Realizar una función (2.5 PUNTOS)
+
+	void NuevoPedido( ?????? , int num_pedido );
+
+que añada un pedido al cliente, la estructura y el numero de pedido se pasan como parámetros.
+Tener en cuenta que el campo Numero_pedidos de la estructura nos dice cuantos pedidos hay ya en el array Pedidos de la misma estructura. La función NuevoPedido deberá actualizar este valor.
+
