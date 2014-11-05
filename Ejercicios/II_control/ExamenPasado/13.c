@@ -21,11 +21,9 @@ void PedirContacto(contacto*);
 int main(int argc, char** argv) {
 
 	int posicion = 0;
-	int i = 0;
 
 	contacto agenda[SIZE]; 
-	for(i = 0; i < SIZE; i++){
-		int j;
+	for(int i = 0; i < sizeof(agenda)/sizeof(agenda[0]); i++){
 		int size = sizeof(agenda[i].pedidos)/sizeof(agenda[i].pedidos[0]);
 		strcpy(agenda[i].nombre, "");
 		strcpy(agenda[i].apellidos, "");
@@ -33,7 +31,7 @@ int main(int argc, char** argv) {
 		strcpy(agenda[i].direccion, "");
 		strcpy(agenda[i].codigo_postal, "");
 		agenda[i].descuento = 0;
-		for(j = 0; j < size ; j++){
+		for(int j = 0; j < size ; j++){
 			agenda[i].pedidos[j] = 0;
 		}
 		agenda[i].numero_pedidos = 0;
