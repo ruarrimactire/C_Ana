@@ -1,9 +1,10 @@
-
 // 13)
 
 #include <stdio.h> 
+#include <string.h>
+#define SIZE 10
 
-struct contacto{ 
+typedef struct { 
        char nombre[30]; 
        char apellidos[50];
        char telefono[16];
@@ -12,26 +13,41 @@ struct contacto{
        float descuento;
        int pedidos[200];
        int numero_pedidos;
-}; 
+} contacto; 
 
 // parte 2
-void PedirContacto(struct contacto[]);
-
-int posicion = 0;
+void PedirContacto(contacto*);
 
 int main(int argc, char** argv) {
 
-    struct contacto agenda[1000]; 
-    
-    PedirContacto(agenda);
-	
+	int posicion = 0;
+	int i = 0;
 
-	printf("\n Nombre:        %s " , agenda[0].nombre        );
-	printf("\n Apellidos:     %s " , agenda[0].apellidos     );
-	printf("\n Telefono:      %s " , agenda[0].telefono      );
-	printf("\n Direccion:     %s " , agenda[0].direccion     );
-	printf("\n Codigo Postal: %s " , agenda[0].codigo_postal );
-	printf("\n Descuento:     %f " , agenda[0].descuento     );
+	contacto agenda[SIZE]; 
+	for(i = 0; i < SIZE; i++){
+		int j;
+		int size = sizeof(agenda[i].pedidos)/sizeof(agenda[i].pedidos[0]);
+		strcpy(agenda[i].nombre, "");
+		strcpy(agenda[i].apellidos, "");
+		strcpy(agenda[i].telefono, "");
+		strcpy(agenda[i].direccion, "");
+		strcpy(agenda[i].codigo_postal, "");
+		agenda[i].descuento = 0;
+		for(j = 0; j < size ; j++){
+			agenda[i].pedidos[j] = 0;
+		}
+		agenda[i].numero_pedidos = 0;
+	}
+
+	PedirContacto(&agenda[posicion]);
+	posicion++;
+
+	printf("\n Nombre:        %s " , agenda[posicion-1].nombre        );
+	printf("\n Apellidos:     %s " , agenda[posicion-1].apellidos     );
+	printf("\n Telefono:      %s " , agenda[posicion-1].telefono      );
+	printf("\n Direccion:     %s " , agenda[posicion-1].direccion     );
+	printf("\n Codigo Postal: %s " , agenda[posicion-1].codigo_postal );
+	printf("\n Descuento:     %f " , agenda[posicion-1].descuento     );
 
 	printf("\n Introduce envio: \n");
     getchar();
@@ -39,29 +55,25 @@ int main(int argc, char** argv) {
     return 0; 
 }
 
-
-
-
-void PedirContacto(struct contacto age[]) {
+void PedirContacto(contacto *age) {
      
 	printf("Por favor rellene los datos");
 	printf("\n Nombre: ");
-	gets(age[posicion].nombre);
+	gets(age->nombre);
 
 	printf("\n Apellidos: ");
-	gets(age[posicion].apellidos); //gets(age[posicion].apellidos);
+	gets(age->apellidos); //gets(age[posicion].apellidos);
 
 	printf("\n Telefono: ");
-	gets(age[posicion].telefono);
+	gets(age->telefono);
 
 	printf("\n Direccion: ");
-	gets(age[posicion].direccion);
+	gets(age->direccion);
 
 	printf("\n Codigo Postal: ");
-	gets(age[posicion].codigo_postal);
+	gets(age->codigo_postal);
 
 	printf("\n Descuento: ");
-	scanf("%f", &age[posicion].descuento);
+	scanf("%f", &age->descuento);
 
-	posicion++;
 }
