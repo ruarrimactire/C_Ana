@@ -13,3 +13,23 @@ http://stackoverflow.com/questions/2630082/fatal-error-c1083-cannot-open-include
 http://www.yolinux.com/TUTORIALS/GDB-Commands.html
 http://stackoverflow.com/questions/6121094/how-do-i-run-a-program-with-commandline-args-using-gdb-within-a-bash-script
 https://forums.netbeans.org/post-61565.html
+
+
+http://www.cplusplus.com/reference/cwctype/towupper/
+	/* towupper example */
+	#include <stdio.h>
+	#include <wctype.h>
+	int main ()
+	{
+	  int i=0;
+	  wchar_t str[] = L"Test String.\n";
+	  wchar_t c;
+	  while (str[i])
+	  {
+		c = str[i];
+		putwchar (towupper(c));
+		i++;
+	  }
+	  return 0;
+	}
+
