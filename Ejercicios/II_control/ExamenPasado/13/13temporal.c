@@ -1,0 +1,99 @@
+/* 
+ * File:   13.c
+ * Author: Filippo
+ *
+ * Created on November 8, 2014, 1:30 PM
+ * 
+ * 
+ * int main(int argc, char** argv) {
+ * 
+ *     return (EXIT_SUCCESS);
+ * }
+ * 
+ */
+
+#include <stdio.h> 
+
+struct contacto{ 
+       char nombre[30]; 
+       char apellidos[50];
+       char telefono[16];
+       char direccion[150];
+       char codigo_postal[5];
+       float descuento;
+       int pedidos[200];
+       int numero_pedidos;
+}; 
+
+// parte 2
+void PedirContacto(struct contacto[]);
+void NuevoPedido( struct contacto[] , int pedido );
+
+int posicion = 0;  // primera posición libre dentro del array de estructuras 
+
+int main(int argc, char** argv) {
+
+	int Pedido=1040;
+    struct contacto agenda[1000]; 
+    
+    PedirContacto(agenda);
+	
+    printf("\n Nombre:        %s " , agenda[0].nombre        );
+    printf("\n Apellidos:     %s " , agenda[0].apellidos     );
+    printf("\n Telefono:      %s " , agenda[0].telefono      );
+    printf("\n Direccion:     %s " , agenda[0].direccion     );
+    printf("\n Codigo Postal: %s " , agenda[0].codigo_postal );
+    printf("\n Descuento:     %f " , agenda[0].descuento     );
+    for(int i=0; i < agenda[posicion-1].numero_pedidos; i++){
+                    printf("\n\t Pedido:     %f " , agenda[posicion-1].pedidos[i]     );
+    }
+    printf("\n Introduce envio: \n");
+    getchar();
+
+    NuevoPedido( agenda, Pedido ); // Pedido por decir numero cualquira
+
+    printf("\n Nombre:        %s " , agenda[0].nombre        );
+    printf("\n Apellidos:     %s " , agenda[0].apellidos     );
+    printf("\n Telefono:      %s " , agenda[0].telefono      );
+    printf("\n Direccion:     %s " , agenda[0].direccion     );
+    printf("\n Codigo Postal: %s " , agenda[0].codigo_postal );
+    printf("\n Descuento:     %1.2f %%" , agenda[0].descuento     );
+    for(int i=0; i < agenda[posicion-1].numero_pedidos; i++){
+                    printf("\n\t Pedido:     %d " , agenda[posicion-1].pedidos[i]     );
+    }
+    printf("\n Introduce envio: \n");
+    getchar();
+
+    return 0; 
+}
+
+void PedirContacto(struct contacto age[]) {
+     
+	printf("Por favor rellene los datos");
+	printf("\n Nombre: ");
+	gets(age[posicion].nombre);
+
+	printf("\n Apellidos: ");
+	gets(age[posicion].apellidos); 
+
+	printf("\n Telefono: ");
+	gets(age[posicion].telefono);
+
+	printf("\n Direccion: ");
+	gets(age[posicion].direccion);
+
+	printf("\n Codigo Postal: ");
+	gets(age[posicion].codigo_postal);
+
+	printf("\n Descuento: ");
+	scanf("%f", &age[posicion].descuento);
+        
+        age[posicion].numero_pedidos = 0;
+	
+        posicion++;
+}
+
+void NuevoPedido( struct contacto age[] , int pedido ){
+	age[posicion-1].pedidos[age[posicion-1].numero_pedidos] = pedido;
+	age[posicion-1].numero_pedidos++;
+}
