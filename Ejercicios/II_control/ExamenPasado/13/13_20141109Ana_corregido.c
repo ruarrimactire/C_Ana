@@ -40,11 +40,12 @@ void PedirContacto(struct contacto age[1000]){
 	printf("\n Descuento: ");
 	scanf("%f", &age[posicion].descuento); 
 
+	age[posicion].numero_pedidos = 0;
 	posicion++;
 }
 
 void NuevoPedido(int id, int pedido) {
-	agenda[posicion].pedidos[agenda[id].numero_pedidos++]=pedido;
+	agenda[id].pedidos[agenda[id].numero_pedidos++] = pedido;
 }
 
 
