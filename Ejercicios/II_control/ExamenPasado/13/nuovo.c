@@ -1,20 +1,25 @@
 #include <stdio.h> 
 #include <string.h>
+#define PEDIDO 1040
 
 struct contacto{ 
- char nombre[30]; 
- char apellidos[50]; //long?
- char telefono[16];
- char direccion[150];
- char codigo_postal[5]; //int?
- float descuento;
- int pedidos[200];
- int numero_pedidos;
+	char nombre[30]; 
+	char apellidos[50]; //long?
+	char telefono[16];
+	char direccion[150];
+	char codigo_postal[5]; //int?
+	float descuento;
+	int pedidos[200];
+	int numero_pedidos;
 }; 
 
+struct contacto agenda[1000]; 
 int posicion = 0;
 
-void PedirContacto(contacto age[1000]){
+void PedirContacto(struct contacto age[1000]);
+void NuevoPedido(int id, int pedido);
+
+void PedirContacto(struct contacto age[1000]){
 	printf("Por favor rellene los datos");
 
 	printf("\n Nombre: ");
@@ -38,19 +43,19 @@ void PedirContacto(contacto age[1000]){
 	posicion++;
 }
 
-void NuevoPedido(int (contacto age[1000]), int pedido) {
-	agenda[posicion].pedidos[agenda[contacto age[1000]].numero_pedidos++]=pedido;
+void NuevoPedido(int id, int pedido) {
+	agenda[posicion].pedidos[agenda[id].numero_pedidos++]=pedido;
 }
 
+
 int main() { 
-	int num_pedido=0
-	struct contacto agenda[1000]; 
+	int num_pedido = 0;
 
 	PedirContacto(agenda);
-	NuevoPedido(1000,pedido);
-	Printf("\nNumero de pedidos: %d\n", num_pedido);
+	NuevoPedido(1000, PEDIDO);
+	printf("\nNumero de pedidos: %d\n", num_pedido);
 
-	getchar();
+	getchar(); 
 	getchar();
 
 	return 0;
