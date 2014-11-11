@@ -87,9 +87,11 @@ void Imprimir(int idCliente) {
     printf("\n Direccion:     %s " , agenda[idCliente].direccion     );
     printf("\n Codigo Postal: %s " , agenda[idCliente].codigo_postal );
     printf("\n Descuento:     %1.2f %%" , agenda[idCliente].descuento     );
-    for(int i=0; i < agenda[posicion-1].numero_pedidos; i++){
-                    printf("\n\t Pedido:  %d " , agenda[idCliente].pedidos[i] );
-    }
+	{ int i;
+		for(i = 0; i < agenda[posicion-1].numero_pedidos; i++){
+						printf("\n\t Pedido:  %d " , agenda[idCliente].pedidos[i] );
+		}
+	}
     printf("\n Introduce envio: \n");
     getchar();
 
