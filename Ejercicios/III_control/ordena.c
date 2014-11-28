@@ -2,20 +2,21 @@
  * File:   main.c
  * Author: Filippo
  *
- * Created on November 27, 2014, 1:30 PM
+ * Created on November 26, 2014, 3:50 PM
  */
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #define MAXLINES 100
+#define MAXCHAR 90
 
-int PedirCadena(char **var) {
-    char cad[90];
+int PedirCadena(char **var, int lineas) {
+    char cad[MAXCHAR];
     int i = 0;
 
-    while( gets(cad)[0] != '\0' && i < MAXLINES ) {
-        var[i] = (char *)malloc(strlen(cad) + 1);
+    while( i < lineas && gets(cad)[0] != '\0' ) {
+        var[i] = (char *) malloc( strlen(cad)+1 );
         strcpy(var[i], cad);
         i++;
     }
@@ -40,24 +41,30 @@ void OrdenarCadenas(char **var, int nfilas){
 }
 
 int main() {
-    char *lista[MAXLINES];
+/*    char *lista[MAXLINES]; */
+    char **lista;
+    char borrar[MAXCHAR];
     int nfilas = 0;
     int i = 0;
 
-	printf("Introducir Lineas:\n");
-    nfilas = PedirCadena(lista);
+    printf("Cuantas filas hay que leer?\n\n");
+    scanf("%d", &nfilas);
+    gets(borrar);
+    fflush(stdin);
     
+    lista = (char **) malloc( nfilas*sizeof(char *) );
     if(lista == NULL){
         printf("Error");
         return 1;
     }
 
+    nfilas = PedirCadena(lista, nfilas);
     OrdenarCadenas(lista, nfilas);
 
     printf("\nLista ordenada de %d filas\n\n", nfilas);
     for(i = 0; i < nfilas; i++){
         printf("%s\n", lista[i]);
     }
-    
+
     return 0;          
 }
