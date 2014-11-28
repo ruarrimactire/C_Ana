@@ -12,7 +12,7 @@ typedef struct EstructuraFichaLibro{
 }FichaLibro; //definicion de tipo
 
 void obtenerDatos(FichaLibro *ficha);
-int AnyadirAFicheros(FichaLibro *ficha, char nombreFichero);
+int AnyadirAFicheros(FichaLibro *ficha, char *nombreFichero);
 
 int main() {
 	FichaLibro fichaTemp; //Declaro una sola ficha
@@ -48,7 +48,7 @@ void obtenerDatos(FichaLibro *ficha) {
     fflush(stdin);
 }
 
-int AnyadirAFicheros(FichaLibro *ficha, char nombreFichero) {
+int AnyadirAFicheros(FichaLibro *ficha, char *nombreFichero) {
 	FILE *pf = NULL;
 	int i = 0;
 
