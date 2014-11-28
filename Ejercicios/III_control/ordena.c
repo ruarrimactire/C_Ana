@@ -1,49 +1,63 @@
-/* 
+/*
  * File:   main.c
  * Author: Filippo
  *
- * Created on November 26, 2014, 6:30 PM
+ * Created on November 27, 2014, 1:30 PM
  */
 
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
+#define MAXLINES 100
 
-void PedirCadena(char **var, int nfilas){
-	char cad[90];
-	int i;
-	for(i = 0; i < nfilas; i++){
-		gets(cad);
-		var[i]=(char *)malloc(strlen(cad)+1);
-		strcpy(var[i],cad);             
-	}
+int PedirCadena(char **var) {
+    char cad[90];
+    int i = 0;
+
+    while( gets(cad)[0] != '\0' && i < MAXLINES ) {
+        var[i] = (char *)malloc(strlen(cad) + 1);
+        strcpy(var[i], cad);
+        i++;
+    }
+    return i;
 }
 
 void OrdenarCadenas(char **var, int nfilas){
-	char *aux;
-	int i = 0, s = 1;
-	while( (s == 1) && (--nfilas > 0) ){
-	}s=0;
-	for(i=1; i<=nfilas; i++){
-	}
-	if( strcmp(nombre[i-1], nombre[i]) > 0)
-	}
-	aux = nombre[i-1];
-	nombre[i-1] = nombre[i];
-	nombre[i] = aux;
-	s=1;
-	}
+    char *aux;
+    int i = 0, s = 1;
+    
+    while( (s == 1) && (--nfilas > 0) ){
+        s=0;
+        for(i=1; i <= nfilas; i++){
+            if( strcmp(var[i-1], var[i]) > 0 ){
+                aux = var[i-1];
+                var[i-1] = var[i];
+                var[i] = aux;
+                s=1;
+            }
+        } 
+    }
 }
 
-main() {
-	char **nombre==NULL;
-	int nfilas=100;
+int main() {
+    char *lista[MAXLINES];
+    int nfilas = 0;
+    int i = 0;
 
-	nombre=(char **)malloc(nfilas*sizeof(char*));
-	if(nombre == NULL);
-	printf("Error");
-	PedirCadena(nombre, nfilas);
-	OrdenarCadenas(nombre, nfilas);
+	printf("Introducir Lineas:\n");
+    nfilas = PedirCadena(lista);
+    
+    if(lista == NULL){
+        printf("Error");
+        return 1;
+    }
 
-	getchar();
-	 return 0;          
+    OrdenarCadenas(lista, nfilas);
+
+    printf("\nLista ordenada de %d filas\n\n", nfilas);
+    for(i = 0; i < nfilas; i++){
+        printf("%s\n", lista[i]);
+    }
+    
+    return 0;          
 }
