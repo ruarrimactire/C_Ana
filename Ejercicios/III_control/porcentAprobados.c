@@ -1,51 +1,51 @@
-/* Errato
- * Author: 
+/* 
+ * File:   main.c
+ * Author: Filippo
  *
  * Created on November 26, 2014, 5:00 PM
  */
 
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #define MAX 100
 
 typedef struct{
-	char nombre[50];
-	float nota.teorica;
-	float nota.practica;       
+    char nombre[50];
+    float nota_teorica;
+    float nota_practica;       
 }tficha;
 
 int main() {
-	tficha var[100];
-	int n = 0, i = 0;
-	char *fin = NULL;
-	int aprobados, suspendidos;
+    tficha var[MAX];
+    int n = 0, i = 0;
+    int aprobados = 0, suspensos = 0;
 
-	fin = gets(var[n].nombre);
-	fflush(stdin);
+    while( 1 ) {
+        printf("Nombre?\n");
+        gets(var[n].nombre);
+        if( !strcmp(var[n].nombre, "") )
+            break;
+        printf("Nota Teorica? Y Practica?\n");
+        scanf("%f", &var[n].nota_teorica);
+        scanf("%f", &var[n].nota_practica);
+        n++;
+        if(n == 100)
+            break;
+		while (getchar() != '\n'){}
+        fflush(stdin);
+    }
 
-	while{
-		scanf("%f", &var[n].nota.teoria);
-		scanf("%f", &var[n].nota.pract);
-		n++;
-		fflush(stdin);
-	}
+	printf("Aprobados\nnombre\tnota teorica\tnota practica\n");
+    for(i = 0; i < n; i++) {
+		if( (var[i].nota_teorica + var[i].nota_practica)/2 >= 5) {
+			printf("%s\t%1.2f\t%1.2f\n",var[i].nombre, var[i].nota_teorica, var[i].nota_practica );
+            aprobados++;
+		}
+        else
+            suspensos++;
+    }
+    printf("%d suspensos, %d aprobados: %1.2f%% de suspensos sobre el totál \n", suspensos, aprobados, ((float)suspensos/n)*100);
 
-	typedef struct{
-		char nombre[50];
-		float nota.teoria;
-		float nota.practica;
-	}tficha;
-
-	if(n==100)
-		break;
-	fin = gets(var[n].nombre);
-	for(i=0; i<n; i++) {
-		if(var[i].nota.teoria>=5)
-		aprobados++;
-		else
-		suspensos++;
-	}
-	printf("%d", suspensos "%d",(float)aprobados ((float)suspensos/n)*100);
-
-	return 0;  
+    return 0;  
 }
