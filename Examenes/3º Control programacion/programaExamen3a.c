@@ -52,8 +52,8 @@ int AnyadirAFicheros(FichaLibro *ficha, char *nombreFichero) {
 	FILE *pf = NULL;
 	int i = 0;
 
-	pf = fopen(nombreFichero, "w");
-
+	pf = fopen(nombreFichero, "a+");
+	fseek(pf, 0, SEEK_END);
 	fwrite(ficha, sizeof(FichaLibro), 1, pf);
 
 	fclose(pf);
