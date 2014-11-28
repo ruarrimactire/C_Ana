@@ -1,0 +1,4 @@
+
+31/10/2014  13:15         2.728.440 vcsetup.exe		installazione Visual C++ (versione 2008?)
+05/11/2014  12:39           427.208 Visual Studio Registration.mht
+23/10/2014  14:49     5.053.364.224 vs2013.3_dskexp_ESN.iso		installazione Visual Studio 2013 for Desktop
