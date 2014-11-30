@@ -52,11 +52,20 @@ int AnyadirAFicheros(FichaLibro *ficha, char *nombreFichero) {
 	FILE *pf = NULL;
 	int i = 0;
 
-	pf = fopen(nombreFichero, "a+");
-	fseek(pf, 0, SEEK_END);
-	fwrite(ficha, sizeof(FichaLibro), 1, pf);
+	pf = fopen(nombreFichero, "a+"); //fseek solo va con a o a+
+	if (pf == NULL) //Si hay un error al abrir el fichero devuelve 0
+		return 0; //Recomendable poner esto despues de fopen
+	fseek(pf, 0, SEEK_END); //En el fichero pf ponte al final. Pf un puntero a fichero. 0 es el desplazamiento. SEE_END es el final
+	fwrite(ficha, sizeof(FichaLibro), 1, pf); //Escribe el dato ficha; reservando un tamaño en el disco igual al tamaño de la estructura fichalibro
+	//Escribe 1 solo elemento; dentro de pf.
+
+	//Detecta errores de cualquier tipo
+	//if( ferror() ) {
+	//	clearerr();
+	//	return 0;
+	//}
 
 	fclose(pf);
 
-	return 1;
+	return 1; //Devuelve true 
 }
