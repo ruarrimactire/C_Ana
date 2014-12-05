@@ -52,48 +52,12 @@ int main(void) {
 			for(i = d-string ; i < c-string; i++)
 				putchar( string2[i] );
 		}
-		printf("\n");
+		printf("%s\n", &string2[d-string]);
 	}
 	
 	printf("\nn%cmero de palabras traducidas: %d\n", -93, count );
 	
 	return 1;
-	// while(c) {
-		// printf("1. Añadir palabras al diccionario;");
-		// printf("2. Modo traducción;");
-		// printf("0. Salir del programa");
-		// c = getchar();
-		
-		// switch(c){
-			// case 1:
-				// break;
-			// case 2:
-				// break;
-			// case 0:
-				// break;
-			// default: 
-		// }
-		
-		// printf("teclear invio...");
-		// getchar();
-		// fflush(stdin);
-		// system("cls");
-	// }
-
-		// http://stackoverflow.com/questions/2347770/how-do-you-clear-console-screen-in-c
-			// #include <conio.h>	// and use	// clrscr()
-			// // printf("\e[1;1H\e[2J");
-
-			// // This function will work on ANSI terminals, demands POSIX. I assume there is a version that might also work on window's console, since it also supports ANSI escape sequences.
-
-			// // #include <unistd.h>
-			// // void
-			// // clearScreen()
-			// // {
-			  // // const char* CLEAR_SCREE_ANSI = "\e[1;1H\e[2J";
-			  // // write(STDOUT_FILENO,CLEAR_SCREE_ANSI,12);
-			// // }
-
 }
 
 int crearDiccionario(diccionario *diccio) {
