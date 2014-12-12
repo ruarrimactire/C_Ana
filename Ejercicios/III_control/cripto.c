@@ -38,25 +38,10 @@
 #include <string.h>
 #define SUBSTITUTEA 'K'
 
-// void temp(void) {
-	// int i;
-	// int f = 'A' - 'K'; // =-10
-	
-	// for (i = 'A'; i <= 'Z'; i++) {
-		// printf("\t %d \t %c \t %c\n", i, i, (i-65-f)%(90-65+1)+65 );
-	// }
-	// printf("\n%d\n", f);
-// }
-
-void main(int argv, char **argc) {
+main( ) {
 	char c;
 	char f = SUBSTITUTEA;
-	
-	if ( argv == 2 && ( ( argc[argv-1][0] >= 'A' && argc[argv-1][0] <= 'Z' ) || ( argc[argv-1][0] >= 'a' && argc[argv-1][0] <= 'z' ) ) ) 
-		f = toupper(argc[argv-1][0]);
-	else
-		f = SUBSTITUTEA;
-		
+
 	while( (c = getchar() ) != EOF ) {
 		c = toupper(c);
 		if ( c >= 'A' && c <= 'Z' )
