@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #define MAXPAREJAS 100
 #define MAXFRASE 100
 #define LONGPALABRA 40
@@ -40,12 +41,16 @@ int main(void) {
 	EngEsp.num = 0;
 	crearDiccionario(&EngEsp);
 
-	while( gets(string)[0] != '\0' ) {
+	do {
 		char *c, *d, string2[MAXFRASE], identificadores[] = {" \t.,-;"};
+
+		if ( gets(string) == NULL || strlen(string)<1 )
+			continue; 
 		strcpy(string2, string);
 		c = strtok (string, identificadores);
 		while (c != NULL) {
 			int i = 0;
+
 			count += traducir(c, &EngEsp);
 			d = c + strlen(c);
 			c = strtok(NULL, identificadores);
@@ -53,9 +58,9 @@ int main(void) {
 				putchar( string2[i] );
 		}
 		printf("%s\n", &string2[d-string]);
-	}
+	} while( !feof(stdin) );
 	
-	printf("\nn%cmero de palabras traducidas: %d\n", -93, count );
+	printf("\nn%cmero de palabras traducidas: %d\n", -93, count  );
 	
 	return 1;
 }
@@ -79,7 +84,7 @@ int crearDiccionario(diccionario *diccio) {
 		diccio->num++;
 		while( flag ) {
 			printf("Introducir otras palabras? (s/n)\n");
-			c = getch();
+			c = getchar();
 			if ( c == 's' )
 				flag = 0;
 			else if( c == 'n')
