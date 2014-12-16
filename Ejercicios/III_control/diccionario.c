@@ -20,6 +20,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <conio.h>
+
 #define MAXPAREJAS 100
 #define MAXFRASE 100
 #define LONGPALABRA 40
@@ -79,7 +81,7 @@ int crearDiccionario(diccionario *diccio) {
 		diccio->num++;
 		while( flag ) {
 			printf("Introducir otras palabras? (s/n)\n");
-			c = getch();
+			c = _getch();
 			if ( c == 's' )
 				flag = 0;
 			else if( c == 'n')
