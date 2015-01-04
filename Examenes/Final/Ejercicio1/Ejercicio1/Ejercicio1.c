@@ -12,32 +12,54 @@ typedef struct datos {
 	struct datos *siguiente;
 } telemento;
 
-void anadir(telemento **, talumno) ;
-void borrar(telemento **, talumno) ;
+void anadir(telemento **, talumno);
+void borrar(telemento **, talumno);
 telemento *buscar(telemento *, talumno);
 void visualizar (telemento *);
-int menu (void) ;
+int menu (void);
 void borrar_lista (telemento *);
 
 main() {
-	telemento *lista = NULL;
+	telemento *lista = NULL, *temp = NULL;
 	talumno alumno;
 	int funcion;
 
 	while(1){
+		alumno.nombre[0] = '\0';
+		alumno.nota = 0;
 		funcion = menu();
+
 		switch (funcion) {
 				case 1:
-
-					anadir(&lista, talumno) ;
+					printf("Introducir nombre\n");
+					scanf("%s", alumno.nombre);
+					printf("Introducir nota\n");
+					scanf("%f", &alumno.nota);
+					anadir(&lista, alumno);
+					visualizar(lista);
 					break;
 				case 2:
+					printf("Introducir nombre\n");
+					scanf("%s", alumno.nombre);
+					printf("Introducir nota\n");
+					scanf("%f", &alumno.nota);
+					borrar(&lista, alumno);
+					visualizar(lista);
 					break;
 				case 3:
+					printf("Introducir nombre\n");
+					scanf("%s", alumno.nombre);
+					printf("Introducir nota\n");
+					scanf("%f", &alumno.nota);
+					temp = buscar(lista, alumno);
+					printf("Nombre: %s\t Nota: %1.1f\n", temp->alumno.nombre, temp->alumno.nota);
 					break;
 				case 4:
+					visualizar (lista);
 					break;
 				case 5:
+					borrar_lista (lista);
+					visualizar (lista);
 					break;
 			}
 	}
