@@ -36,7 +36,7 @@ main() {
 					printf("Introducir nota\n");
 					scanf("%f", &alumno.nota);
 					anadir(&lista, alumno);
-					visualizar(lista);
+					// visualizar(lista);
 					break;
 				case 2:
 					printf("Introducir nombre\n");
@@ -151,8 +151,9 @@ La función visualizar recibirá como parámetros la dirección del primer elemento 
 void visualizar (telemento *lista) {
 	while(lista != NULL ){
 		printf("Nombre: %s\t Nota: %1.1f\n", lista->alumno.nombre, lista->alumno.nota);
+		lista = lista->siguiente;
 	}
-	printf("fin de la lista\n");
+	printf("fin de la lista\n\n");
 }
 
 /* e)	Presentar un menú con cada una de las operaciones anteriores.
@@ -168,7 +169,7 @@ int menu (void) {
 		printf("3. Buscar alumno\n");
 		printf("4. Visualizar todo\n");
 		printf("5. Borrar todo\n");
-		printf("0 para salir\n\n");
+		printf("0. para salir\n\n");
 
 		scanf("%d", &i);
 		fflush(stdin);
