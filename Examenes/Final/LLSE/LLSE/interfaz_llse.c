@@ -53,4 +53,3 @@ void borrarTodos(Elemento **lista) {
 	}
 	*lista=NULL;
 }
-
