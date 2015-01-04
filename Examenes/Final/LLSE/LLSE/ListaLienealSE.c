@@ -4,10 +4,9 @@
 
 main() {		
 	int i = 0;
-
 	Elemento *llse=NULL;
-
 	double *n = NULL, d = 0;
+	
 	printf("Introducir datos. Finalizar con eof.\n");
 	printf("Valor double: ");
 	while(scanf("%lf", &d)!=EOF) {	

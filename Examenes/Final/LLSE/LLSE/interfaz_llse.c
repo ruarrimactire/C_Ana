@@ -9,6 +9,8 @@ void error()
 }
 
 Elemento *nuevoElemento() {
+	// Elemento *q;
+	// q = (Elemento *)malloc(sizeof(Elemento));
 	Elemento *q = (Elemento *)malloc(sizeof(Elemento));
 	if(!q)
 		error();
@@ -18,6 +20,7 @@ Elemento *nuevoElemento() {
 void anyadirAlPrincipio(void *e, Elemento **lista) {
 	Elemento *p = *lista;
 	Elemento *q = nuevoElemento();
+
 	q->dato = e;
 	q->siguiente = p;
 	p = q;
