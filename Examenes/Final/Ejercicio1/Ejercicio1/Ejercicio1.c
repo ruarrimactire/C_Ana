@@ -28,44 +28,41 @@ main() {
 		alumno.nombre[0] = '\0';
 		alumno.nota = 0;
 		funcion = menu();
-
 		switch (funcion) {
 				case 1:
 					printf("Introducir nombre\n");
 					scanf("%s", alumno.nombre);
 					printf("Introducir nota\n");
 					scanf("%f", &alumno.nota);
+					fflush(stdin);
 					anadir(&lista, alumno);
-					// visualizar(lista);
 					break;
 				case 2:
 					printf("Introducir nombre\n");
 					scanf("%s", alumno.nombre);
-					printf("Introducir nota\n");
-					scanf("%f", &alumno.nota);
+					fflush(stdin);
 					borrar(&lista, alumno);
-					visualizar(lista);
 					break;
 				case 3:
 					printf("Introducir nombre\n");
 					scanf("%s", alumno.nombre);
-					printf("Introducir nota\n");
-					scanf("%f", &alumno.nota);
+					fflush(stdin);
 					temp = buscar(lista, alumno);
 					printf("Nombre: %s\t Nota: %1.1f\n", temp->alumno.nombre, temp->alumno.nota);
+					printf("\tIntroducir envio ...\n\n");
+					getchar();
 					break;
 				case 4:
 					visualizar (lista);
 					break;
 				case 5:
 					borrar_lista (lista);
-					visualizar (lista);
+					lista = NULL; // parece necesario porqué se define void borrar_lista (telemento *); y no por referencia.
 					break;
 			}
 	}
 
 }
-
 
 
 // La función añadir recibirá como parámetros la dirección del primer elemento de la lista, 
@@ -99,6 +96,8 @@ void borrar(telemento **lista, talumno datos) {
 	temp = buscar(*lista, datos);
 	if(temp == NULL){
 		printf("Alumno no encontrado.\n");
+		printf("\tIntroducir envio ...\n\n");
+		getchar();
 		return;
 	}
 
@@ -132,7 +131,7 @@ telemento *buscar(telemento *lista, talumno datos) {
 	telemento *temp = lista;
 
 	while(temp != NULL) {
-		if( (temp->alumno.nombre == datos.nombre) && (temp->alumno.nota == datos.nota) ) {
+		if( strcmp(temp->alumno.nombre, datos.nombre) == 0 ) {
 			return temp;
 		}
 		else {
@@ -154,6 +153,9 @@ void visualizar (telemento *lista) {
 		lista = lista->siguiente;
 	}
 	printf("fin de la lista\n\n");
+	printf("\tIntroducir envio ...\n\n");
+	getchar();
+	system("cls");
 }
 
 /* e)	Presentar un menú con cada una de las operaciones anteriores.
@@ -164,6 +166,7 @@ int menu (void) {
 	int i = 6;
 
 	while(i == 6){
+		system("cls");
 		printf("1. Anyadir alumno\n");
 		printf("2. Borrar alumno\n");
 		printf("3. Buscar alumno\n");
