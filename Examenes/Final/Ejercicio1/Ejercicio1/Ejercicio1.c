@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 typedef struct alumno {
-	char nombre [60] ;
+	char nombre[60] ;
 	float nota;
 } talumno;
 
@@ -53,10 +53,10 @@ main() {
 					getchar();
 					break;
 				case 4:
-					visualizar (lista);
+					visualizar(lista);
 					break;
 				case 5:
-					borrar_lista (lista);
+					borrar_lista(lista);
 					lista = NULL; // parece necesario porqué se define void borrar_lista (telemento *); y no por referencia.
 					break;
 			}
@@ -69,8 +69,10 @@ main() {
 // parámetro que será pasado por referencia puesto que puede variar, cuando se inserte un 
 // elemento al principio, y los datos del alumno a insertar.
 void anadir(telemento **lista, talumno datos) {
-	telemento *temp=*lista;
-	telemento *nuevo = (telemento *)malloc(sizeof(telemento));
+	telemento *temp, *nuevo;
+
+	temp = *lista;
+	nuevo = (telemento *)malloc(sizeof(telemento));
 	
 	if (!nuevo){
 		printf("memoria insuficiente. \n");
@@ -100,7 +102,8 @@ void borrar(telemento **lista, talumno datos) {
 		getchar();
 		return;
 	}
-
+	
+	// despues que se ha encontrado el elemento que contiene datos, se busca el elemento anterior
 	temp0 = *lista;
 	while(temp0 != NULL) {
 		if(temp0->siguiente == temp){
@@ -192,10 +195,12 @@ int menu (void) {
 /* e)	Borrar la lista.
 La función borrar_lista liberará la memoria ocupada por todos los elementos de la lista.
 */
-void borrar_lista (telemento *lista) {
-	telemento **temp = &lista;
+void borrar_lista(telemento *lista) {
+	telemento *temp = NULL;
 
-	while( *temp != NULL ){
-		borrar(temp, lista->alumno);
+	while( lista != NULL ) {
+		temp = lista;
+		lista = lista->siguiente;
+		free(temp);
 	}
 }
